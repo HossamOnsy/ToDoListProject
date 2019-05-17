@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>To Do List</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="todolist.css">
+</head>
+
+<body id="body">
+
+  <div>
+    <header>
+      
+      <h3>To Do List App </h3>
+      <nav> <a id="mainPageAnchor" href="#">Main Page</a> |
+        <a  id="addUserPageAnchor" href="#">Add New User</a></nav>
+
+    </header>
+  </div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  
+  <section id="AddUserSection" >
+    <article id="article_addUser" class="centering">
+      <input id="inpOfNewUser" type="text" value="" ><button id="add_user">Add User</button>
+     
+    </article>
+    <center><h4 id="alreadExistsHeader">Already Exists</h4></center>
+    <center>
+      <h4 id="addedSuccessfullyHeader" >Added Successfully</h4></center>
+    <br>
+  </section> 
+
+
+    <section id="MainPageSection">
+      <article id="article_addTask" class="centering">
+          <select id="usersSelection">
+              <option value="volvo">Volvo</option>
+            </select>
+        <input id="inp" type="text" value=""><button id="add_Task">Add Task</button>
+      </article>
+      <article>
+        <div id="search_div" class="centering">
+          <input id="search_inp" type="text" placeholder="Search By Task..." value=""><button id="search_btn">Search</button>
+        </div>   
+        <div id="divToDo" class="listCentering"></div>
+        <p>
+          <h3>Checked</h3>
+        </p>
+        <div id="divDone" class="listCentering"></div>
+      </article>
+  
+    </section> 
+
+    
+
+
+
+
+  <script src="todolist.js"></script>
+</body>
+
+</html>

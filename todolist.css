@@ -1,0 +1,100 @@
+section {
+  
+  display: block;
+  margin-top: 30px; 
+  width: 100%;
+  
+}
+article {
+  
+  margin-top: 10px; 
+  
+}
+div{
+  position: relative;
+  align-items: center;    
+  justify-content: center 
+}
+input{
+  margin: 0;
+}
+.centering{
+
+  display: flex;
+  align-items: center;
+  justify-content: center 
+}
+.listCentering{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 25px;
+}
+
+
+#divDone {
+  /* position: relative; */
+  margin-bottom: 100px;
+}
+
+#divToDo {
+  position: relative;
+  min-height: 125px;
+}
+#adding_user{
+  float: right
+}
+#AddUserSection{
+  display: none
+}
+#alreadExistsHeader{
+  display: none
+}
+#addedSuccessfullyHeader{
+  display: none
+}
+
+#usersSelection{
+  margin: 15px;
+}
+
+select{
+  width: 100px;
+
+}
+/* Optional: Makes the sample page fill the window. */
+html{
+  
+  height: 100%;
+  margin: 5px 5px 0 0;
+  /* overflow: hidden; */
+}
+body{
+  margin: 0;
+  height: 100%;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-image: linear-gradient(to bottom, red , yellow);
+}
+header {  
+  /* display: block; */
+  position: fixed;
+  margin: 5px 5px;
+  border: 1px solid #000000;
+  text-align: center;
+  background-color: rgb(255, 239, 16);
+  width: 98.5%;
+}
+
+
+h3,
+label[for='new-task'] {
+  color: #000;
+  font-weight: 700;
+  font-size: 36px;
+  border-bottom: 2px solid #333;
+  padding: 20px 0 10px;
+  margin: 0;
+  text-transform: uppercase;
+}
