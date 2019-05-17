@@ -1,4 +1,3 @@
-
 var toDoListItem = function (title, owner) {
     this.title = title;
     this.owner = owner;
@@ -9,7 +8,7 @@ var toDoListItem = function (title, owner) {
     this.spann.appendChild(this.textInPar);
     this.spann.id = "ID_" + "P_" + title;
 
-   
+
 
     this.checkBox = document.createElement("input");
     this.checkBox.type = "checkbox";
@@ -22,10 +21,11 @@ var toDoListItem = function (title, owner) {
     this.deleteBtn = document.createElement("IMG");
     this.deleteBtn.id = title;
     this.deleteBtn.style = "margin-left:10px;width:25px;height:25px;float:right;";
-    this.deleteBtn.src =  "delete.png"
+    this.deleteBtn.src = "delete.png"
 
     this.div = document.createElement("DIV");
     this.div.style = "margin:5px;display:block;width:250px";
+    this.div.className = "w3-panel w3-card-2"
     this.div.appendChild(this.spann);
     this.div.appendChild(this.deleteBtn);
     this.div.appendChild(this.checkBox);
@@ -60,51 +60,51 @@ usersSelection.addEventListener("change", usersSelectionChanged);
 
 
 function showMainPage() {
-    showfirstHideSecond(mainPageSection,addUserSection);
+    showfirstHideSecond(mainPageSection, addUserSection);
 }
 
 function showAddUserPage() {
-    showfirstHideSecond(addUserSection,mainPageSection);
+    showfirstHideSecond(addUserSection, mainPageSection);
 }
 
-function showfirstHideSecond(target1,target2){
+function showfirstHideSecond(target1, target2) {
     target1.style.display = "block";
     target2.style.display = "none";
 
 }
-if(localStorage.length==0){
-    usersSelection.innerHTML+="<option value=\"H\">\"H\"</option>";
+if (localStorage.length == 0) {
+    usersSelection.innerHTML += "<option value=\"H\">\"H\"</option>";
     usersSelection.selectedIndex = 0;
     toDoList = [];
-    var toDo = new toDoListItem("Welcome To List App" ,"H");
-    toDo.checkedOrNot=false;
+    var toDo = new toDoListItem("Welcome To List App", "H");
+    toDo.checkedOrNot = false;
     toDoList.push(toDo);
-    localStorage.setItem("H",JSON.stringify(toDoList));
+    localStorage.setItem("H", JSON.stringify(toDoList));
 }
 
 function addUser() {
     var notUnique = false
     for (i = 0; i < localStorage.length; i++) {
-        if (localStorage.key(i)==inpOfNewUser.value) {
+        if (localStorage.key(i) == inpOfNewUser.value) {
             notUnique = true;
             break
         }
     }
 
     if (notUnique) {
-        showfirstHideSecond(alreadExistsHeader,addedSuccessfullyHeader);
+        showfirstHideSecond(alreadExistsHeader, addedSuccessfullyHeader);
     } else {
-        localStorage.setItem(inpOfNewUser.value,inpOfNewUser.value);
-        showfirstHideSecond(addedSuccessfullyHeader,alreadExistsHeader);
+        localStorage.setItem(inpOfNewUser.value, inpOfNewUser.value);
+        showfirstHideSecond(addedSuccessfullyHeader, alreadExistsHeader);
     }
     getUsersFromLocalStoarge();
-    toDoList=[];
+    toDoList = [];
     clearDivs();
     getTasksSpecifiedToUser(usersSelection.options[usersSelection.selectedIndex].value);
 }
 
-function usersSelectionChanged(){
-      
+function usersSelectionChanged() {
+
     clearDivs();
     getTasksSpecifiedToUser(usersSelection.options[usersSelection.selectedIndex].value);
 }
@@ -112,35 +112,35 @@ function usersSelectionChanged(){
 
 getUsersFromLocalStoarge();
 
-function getUsersFromLocalStoarge(){
-    usersSelection.innerHTML=""
+function getUsersFromLocalStoarge() {
+    usersSelection.innerHTML = ""
     for (i = 0; i < localStorage.length; i++) {
-        
+
         var temp = localStorage.key(i);
-        usersSelection.innerHTML+="<option value=\""+temp+"\">"+temp+"</option>";
+        usersSelection.innerHTML += "<option value=\"" + temp + "\">" + temp + "</option>";
     }
-    usersSelection.selectedIndex=0;
+    usersSelection.selectedIndex = 0;
 
     // <option value="volvo">Volvo</option>
 }
 
-if(localStorage.length<1){
+if (localStorage.length < 1) {
     getTasksSpecifiedToUser("H");
+} else {
+    getTasksSpecifiedToUser(usersSelection.options[usersSelection.selectedIndex].value);
 }
-    else{
-        getTasksSpecifiedToUser(usersSelection.options[usersSelection.selectedIndex].value);
-    }
-function getTasksSpecifiedToUser(owner){
-    
+
+function getTasksSpecifiedToUser(owner) {
+
     var retrievedObject = localStorage.getItem(owner);
     retrievedParsedObject = JSON.parse(retrievedObject);
     console.log('retrievedParsedObject: ', retrievedParsedObject);
-    toDoList=[];
+    toDoList = [];
     if (retrievedParsedObject != null)
         retrievedParsedObject.forEach(element => {
-    
+
             addElementToListInBlock(element.title, owner.value, element.checkedOrNot);
-    
+
         });
 }
 
@@ -183,7 +183,7 @@ function alterElementChecked(pDiv, flag) {
         if (toDoList[i].title === pDiv.firstElementChild.textContent) {
             toDoList[i].checkedOrNot = flag;
 
-            localStorage.setItem(usersSelection.options[usersSelection.selectedIndex].value , JSON.stringify(toDoList));
+            localStorage.setItem(usersSelection.options[usersSelection.selectedIndex].value, JSON.stringify(toDoList));
             break;
         }
     }
@@ -199,7 +199,7 @@ function startSearching(e) {
 
     if (search_inp.value == "") {
         clearDivs();
-       
+
         toDoList.forEach(function (element) {
             addElementToListInBlock(element.title, usersSelection.options[usersSelection.selectedIndex].value, element.checkedOrNot, true)
         });
@@ -228,10 +228,10 @@ function addElementToListInBlock(title, owner, checkedOrNot, searching) {
             owner
         );
 
-           
+
         listItem.deleteBtn.addEventListener("click", deleteCalled);
         listItem.checkBox.addEventListener("change", checkBoxChecked);
-      
+
         if (checkedOrNot) {
             listItem.checkBox.checked = true;
             listItem.spann.style.textDecoration = "line-through";
@@ -245,8 +245,8 @@ function addElementToListInBlock(title, owner, checkedOrNot, searching) {
             toDoList.push(listItem);
 
 
-        if(owner!==undefined)
-        localStorage.setItem(owner , JSON.stringify(toDoList));
+        if (owner !== undefined)
+            localStorage.setItem(owner, JSON.stringify(toDoList));
     }
     inp.value = "";
 

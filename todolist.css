@@ -1,30 +1,35 @@
 section {
-  
+
   display: block;
-  margin-top: 30px; 
+  margin-top: 30px;
   width: 100%;
-  
+
 }
+
 article {
-  
-  margin-top: 10px; 
-  
+
+  margin-top: 10px;
+
 }
-div{
-  position: relative;
-  align-items: center;    
-  justify-content: center 
+
+div {
+  /* position: relative; */
+  align-items: center;
+  justify-content: center
 }
-input{
+
+input {
   margin: 0;
 }
-.centering{
+
+.centering {
 
   display: flex;
   align-items: center;
-  justify-content: center 
+  justify-content: center
 }
-.listCentering{
+
+.listCentering {
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -32,6 +37,9 @@ input{
   margin-top: 25px;
 }
 
+h3 {
+  margin: 40px
+}
 
 #divDone {
   /* position: relative; */
@@ -39,45 +47,52 @@ input{
 }
 
 #divToDo {
-  position: relative;
+  /* position: relative; */
   min-height: 125px;
 }
-#adding_user{
+
+#adding_user {
   float: right
 }
-#AddUserSection{
-  display: none
-}
-#alreadExistsHeader{
-  display: none
-}
-#addedSuccessfullyHeader{
+
+#AddUserSection {
   display: none
 }
 
-#usersSelection{
+#alreadExistsHeader {
+  display: none
+}
+
+#addedSuccessfullyHeader {
+  display: none
+}
+
+#usersSelection {
   margin: 15px;
 }
 
-select{
+select {
   width: 100px;
 
 }
+
 /* Optional: Makes the sample page fill the window. */
-html{
-  
+html {
+
   height: 100%;
   margin: 5px 5px 0 0;
   /* overflow: hidden; */
 }
-body{
+
+body {
   margin: 0;
   height: 100%;
   background-attachment: fixed;
   background-repeat: no-repeat;
-  background-image: linear-gradient(to bottom, red , yellow);
+  background-image: linear-gradient(to bottom, red, yellow);
 }
-header {  
+
+header {
   /* display: block; */
   position: fixed;
   margin: 5px 5px;
